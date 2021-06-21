@@ -1,0 +1,26 @@
+$xs: 360px;
+$s: 440px;
+$m: 768px;
+$ml: 1024;
+$l: 1280px;
+$xl: 1440px;
+
+@mixin for-size($size) {
+    @if $size == xs {
+        @media (max-width: $s) {
+            @content;
+        }
+    } @else if $size == m {
+        @media (max-width: $m) {
+            @content;
+        }
+    } @else if $size == l {
+        @media (max-width: $l) {
+            @content;
+        }
+    } @else if $size == xl {
+        @media (max-width: $xl) {
+            @content;
+        }
+    }
+}

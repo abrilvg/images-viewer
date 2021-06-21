@@ -1,0 +1,74 @@
+// Importa aquí tus fuentes.
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+$font-primary: 'Roboto', serif;
+
+$font-size-x-small: 12px;
+$font-size-small: 14px;
+$font-size-medium: 18px;
+$font-size-large: 28px;
+$font-size-x-large: 46px;
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: $font-size-x-large;
+    color: $color-white;
+    font-family: $font-primary;
+    font-weight: 300;
+    margin: $padding-large 0;
+
+    @include for-size(m) {
+        font-size: $font-size-large;
+    }
+}
+
+h2 {
+    font-size: $font-size-large;
+    color: $color-black;
+    font-family: $font-primary;
+    font-weight: 300;
+    margin: $padding-small 0;
+
+    @include for-size(m) {
+        font-size: $font-size-medium;
+    }
+}
+
+h3 {
+    font-size: $font-size-medium;
+    color: $color-black;
+    font-family: $font-primary;
+    font-weight: 200;
+    margin: $padding-small 0;
+
+    @include for-size(m) {
+        font-size: $font-size-small;
+    }
+}
+
+h4 {
+    font-size: $font-size-small;
+    color: $color-black;
+    font-family: $font-primary;
+    font-weight: 200;
+    margin: $padding-small 0;
+
+    @include for-size(m) {
+        font-size: $font-size-x-small;
+    }
+}
+
+p {
+    font-family: $font-primary;
+    font-size: $font-size-small;
+    color: $color-black;
+    font-weight: 100;
+    margin: $padding-small 0;
+}
