@@ -22,8 +22,9 @@ const roverOptions = [
 
 const Header = ({history}) => {
 
+    let values = QueryString.parse(history.location.search);
+
     const handleChangeRover = (rover) => {
-        let values = QueryString.parse(history.location.search);
         values = {...values, rover};
         history.push(`?${QueryString.stringify(values)}`);
     };
@@ -37,7 +38,7 @@ const Header = ({history}) => {
             <section className="rovers">
                 <SelectField
                     options={roverOptions}
-                    initialValue={roverOptions[0]}
+                    initialValue={values.rover? values.rover : null}
                     onChange={handleChangeRover}
                 />
             </section>

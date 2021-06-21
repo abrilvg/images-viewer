@@ -7,9 +7,10 @@ const DateField = ({label, initialValue, onChange}) => {
 
     let initialValueFormatted = '';
     if (initialValue) {
+        initialValue = new Date(initialValue);
         let year = initialValue.getFullYear();
-        let month = initialValue.getMonth() < 10 ? `0${initialValue.getMonth()}` : initialValue.getMonth();
-        let day = initialValue.getDay() < 10 ? `0${initialValue.getDay()}` : initialValue.getMonth();
+        let month = initialValue.getMonth() + 1 < 10 ? `0${initialValue.getMonth()+1}` : initialValue.getMonth()+1;
+        let day = initialValue.getDate() < 10 ? `0${initialValue.getDate()}` : initialValue.getDate();
         initialValueFormatted = `${year}-${month}-${day}`;
     }
 
