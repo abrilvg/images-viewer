@@ -1,0 +1,14 @@
+@import '../../scss//base.scss';
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 50px;
+}
+
+.message.danger {
+    h3 {
+        color: red;
+    }
+}

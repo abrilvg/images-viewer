@@ -3,22 +3,19 @@ import PropTypes from 'prop-types';
 
 import './selectField.scss';
 
-const SelectField = ({options, label, secondary, initialValue, onChange}) => {
+const SelectField = ({options, label, secondary, value, onChange}) => {
 
-    const [selectValue, setSelectValue] = useState(initialValue);
-
-    const handleChange = ({target: {value}}) => {
-        setSelectValue(value);
-        onChange(value);
-    };
+    const handleChange = ({target: {value}}) => onChange(value);
 
     const classNameValue = secondary? 'select-content secondary': 'select-content';
+
+    console.log(value, '############ value');
 
     return (
         <div className={classNameValue}>
             {label && <label>{label}:</label>}
-            <select value={selectValue} onChange={handleChange}>
-                { !initialValue && <option value={'empty'} key={'empty'}>{'Select an option...'}</option>}
+            <select value={value} onChange={handleChange}>
+                { !value && <option value={'empty'} key={'empty'}>{'Select an option...'}</option>}
                 {
                     options.map((o, index) => <option value={o.key} key={index}>{o.name}</option>)
                 }
@@ -34,7 +31,7 @@ SelectField.propTypes = {
     }).isRequired),
     label: PropTypes.string,
     secondary: PropTypes.bool,
-    initialValue: PropTypes.shape({
+    value: PropTypes.shape({
         key: PropTypes.string,
         name: PropTypes.string
     }),

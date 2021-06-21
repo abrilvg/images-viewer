@@ -3,30 +3,25 @@ import PropTypes from 'prop-types';
 
 import './dateField.scss';
 
-const DateField = ({label, initialValue, onChange}) => {
+const DateField = ({label, value, onChange}) => {
 
-    let initialValueFormatted = '';
-    if (initialValue) {
-        initialValue = new Date(initialValue);
-        let year = initialValue.getFullYear();
-        let month = initialValue.getMonth() + 1 < 10 ? `0${initialValue.getMonth()+1}` : initialValue.getMonth()+1;
-        let day = initialValue.getDate() < 10 ? `0${initialValue.getDate()}` : initialValue.getDate();
-        initialValueFormatted = `${year}-${month}-${day}`;
+    let valueFormatted = '';
+    if (value) {
+        value = new Date(value);
+        let year = value.getFullYear();
+        let month = value.getMonth() + 1 < 10 ? `0${value.getMonth()+1}` : value.getMonth()+1;
+        let day = value.getDate() < 10 ? `0${value.getDate()}` : value.getDate();
+        valueFormatted = `${year}-${month}-${day}`;
     }
 
-    const [inputValue, setInputValue] = useState(initialValueFormatted);
-
-    const handleChange = (event) => {
-        setInputValue(event.target.value);
-        onChange(event.target.value);
-    };
+    const handleChange = ({target: {value}}) => onChange(value);
 
     return (
         <div className="date-content">
             {label && <label>{label}:</label>}
             <input
                 type="date"
-                value={inputValue}
+                value={valueFormatted}
                 onChange={handleChange}
             />
         </div>

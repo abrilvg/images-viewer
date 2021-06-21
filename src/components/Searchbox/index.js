@@ -50,11 +50,11 @@ const cameras = [
 
 const Searchbox = ({history}) => {
 
-    let values = QueryString.parse(history.location.search);
+    let filters = QueryString.parse(history.location.search);
 
     const handleChangeFilter = (name, value) => {
-        values = {...values, [name]: value};
-        history.push(`?${QueryString.stringify(values)}`);
+        filters = {...filters, [name]: value, page: 1};
+        history.push(`?${QueryString.stringify(filters)}`);
     };
 
     return (
@@ -64,21 +64,21 @@ const Searchbox = ({history}) => {
                 <InputField
                     options={cameras}
                     secondary
-                    label='Select sol Date'
-                    initialValue={values.sol}
+                    label='Select Sol Date'
+                    value={filters.sol}
                     onChange={handleChangeFilter.bind(this, 'sol')}
                 />
                 <SelectField
                     options={cameras}
                     secondary
                     label='Select Camera'
-                    initialValue={values.camera? values.camera : null}
+                    value={filters.camera? filters.camera : ''}
                     onChange={handleChangeFilter.bind(this, 'camera')}
                 />
                 <DateField
                     label='Select Earth Day'
                     onChange={handleChangeFilter.bind(this, 'earth_date')}
-                    initialValue={values.earth_date}
+                    value={filters.earth_date}
                 />
             </section>
         </div>
