@@ -1,0 +1,11 @@
+.header {
+    margin: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+}

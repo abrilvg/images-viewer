@@ -1,0 +1,11 @@
+@import '../../scss//base.scss';
+
+.select {
+    min-width: 200px;
+    height: 50px;
+    color: $color-secondary;
+    font-family: $font-primary;
+    font-size: $font-size-small;
+    border: 1.5px solid $color-secondary;
+    border-radius: 5px;
+}

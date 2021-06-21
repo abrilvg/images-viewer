@@ -1,0 +1,14 @@
+@import '../../scss//base.scss';
+
+.photo {
+    background-color: #f3f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    img {
+        width: 250px;
+    }
+}
