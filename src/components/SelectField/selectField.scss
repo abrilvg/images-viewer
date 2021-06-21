@@ -1,0 +1,26 @@
+@import '../../scss//base.scss';
+
+@mixin select-style($color) {
+    min-width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1.5px solid $color;
+    color: $color;
+}
+
+.select-content {
+    select {
+        @include select-style($color-primary);
+    }
+}
+
+.select-content.secondary {
+    color: $color-white;
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    width: 400px;
+
+    select {
+        @include select-style($color-secondary);
+    }
+}

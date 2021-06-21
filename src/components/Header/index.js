@@ -1,5 +1,7 @@
 import React from 'react';
-import Select from '../Select';
+import SelectField from '../SelectField';
+import { withRouter } from 'react-router-dom';
+import QueryString from 'query-string';
 
 import './header.scss';
 
@@ -18,7 +20,14 @@ const roverOptions = [
     }
 ];
 
-const Header = () => {
+const Header = ({history}) => {
+
+    const handleChangeRover = (rover) => {
+        let values = QueryString.parse(history.location.search);
+        values = {...values, rover};
+        history.push(`?${QueryString.stringify(values)}`);
+    };
+
     return (
         <div className="header">
             <section className="logo">
@@ -26,10 +35,15 @@ const Header = () => {
                 <h2>Rover Mars</h2>
             </section>
             <section className="rovers">
-                <Select options={roverOptions} />
+                <SelectField
+                    options={roverOptions}
+                    initialValue={roverOptions[0]}
+                    onChange={handleChangeRover}
+                />
             </section>
         </div>
     );
 };
 
-export default Header;
+export default withRouter(Header);
+export {Header};
