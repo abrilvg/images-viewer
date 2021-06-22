@@ -56,4 +56,6 @@ const photosStore = (state = initialState, action) => {
 
 const store = createStore(photosStore);
 
+export {photosStore as PhotosStore};
+
 export default store;
