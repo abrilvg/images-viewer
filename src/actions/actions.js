@@ -8,8 +8,8 @@ import {
 } from '../actiontypes/index';
 
 const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers';
-// const apiKey = '2AKoz9U2oRHriOMf7IYEgJVrhagwKNAeCbCC6AsT';
-const apiKey = 'DEMO_KEY';
+const apiKey = '2AKoz9U2oRHriOMf7IYEgJVrhagwKNAeCbCC6AsT';
+// const apiKey = 'DEMO_KEY';
 
 const getPhotos = async (dispatch, filterParams) => {
 

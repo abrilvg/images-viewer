@@ -2,10 +2,17 @@
 
 @mixin select-style($color) {
     min-width: 200px;
+    max-width: 300px;
     height: 50px;
     border-radius: 5px;
     border: 1.5px solid $color;
     color: $color;
+    @include for-size(xs) {
+        min-width: 120px;
+    }
+    @include for-size(xs) {
+        min-width: 90px;
+    }
 }
 
 .select-content {
@@ -19,7 +26,7 @@
     font-family: $font-primary;
     font-size: $font-size-medium;
     font-weight: bold;
-    width: 400px;
+    width: 300px;
 
     select {
         @include select-style($color-secondary);

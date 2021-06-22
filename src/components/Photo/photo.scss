@@ -4,11 +4,22 @@
     background-color: #f3f1f1;
     border-radius: 5px;
     padding: 10px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    display: block;
+    position: relative;
+    margin: auto;
 
     img {
         width: 250px;
+    }
+
+    .description {
+        font-family: $font-primary;
+        font-size: $font-size-x-small;
+        position: absolute;
+        color: $color-white;
+        background-color: $color-black;
+        padding: 7px;
+        bottom: 14px;
+        left: 62px;
     }
 }

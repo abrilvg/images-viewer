@@ -9,11 +9,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include for-size(m) {
+        height: 600px;
+    }
 
     .filters {
         display: flex;
         width: 100%;
         justify-content: space-evenly;
+        @include for-size(m) {
+            display: block;
+        }
+
+        .input-content, .select-content, .date-content, input, select {
+            @include for-size(m) {
+                margin: 3px auto;
+                width: 350px;
+            }
+        }
     }
 
     .saved-searches {
@@ -23,14 +36,32 @@
         background-color:rgba(183, 69, 27, 0.5);
         padding: 15px;
         margin: 50px 0;
+        @include for-size(m) {
+            margin: 10px 0;
+        }
+        @include for-size(xs) {
+            display: block;
+        }
 
         .select-content {
-            width: 700px;
+            width: 500px;
+            @include for-size(m) {
+                width: 500px;
+            }
+            @include for-size(xs) {
+                width: 350px;
+            }
         }
 
         select {
-            width: 500px;
+            width: 350px;
             margin: 5px;
+            @include for-size(m) {
+                width: 350px;
+            }
+            @include for-size(xs) {
+                width: 300px;
+            }
         }
 
         button {
@@ -39,6 +70,9 @@
             border: 0;
             margin: 0 10px;
             border-radius: 5px;
+            @include for-size(xs) {
+                margin-top: 10px;
+            }
         }
 
         button:hover {
