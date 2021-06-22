@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/images-viewer/static/css/main.d2e3f4fe.chunk.css",
+    "main.js": "/images-viewer/static/js/main.e65532ba.chunk.js",
+    "main.js.map": "/images-viewer/static/js/main.e65532ba.chunk.js.map",
+    "runtime-main.js": "/images-viewer/static/js/runtime-main.d497e789.js",
+    "runtime-main.js.map": "/images-viewer/static/js/runtime-main.d497e789.js.map",
+    "static/js/2.c094e6fe.chunk.js": "/images-viewer/static/js/2.c094e6fe.chunk.js",
+    "static/js/2.c094e6fe.chunk.js.map": "/images-viewer/static/js/2.c094e6fe.chunk.js.map",
+    "static/js/3.2cfae8fa.chunk.js": "/images-viewer/static/js/3.2cfae8fa.chunk.js",
+    "static/js/3.2cfae8fa.chunk.js.map": "/images-viewer/static/js/3.2cfae8fa.chunk.js.map",
+    "index.html": "/images-viewer/index.html",
+    "static/css/main.d2e3f4fe.chunk.css.map": "/images-viewer/static/css/main.d2e3f4fe.chunk.css.map",
+    "static/js/2.c094e6fe.chunk.js.LICENSE.txt": "/images-viewer/static/js/2.c094e6fe.chunk.js.LICENSE.txt",
+    "static/media/marte.aa5e4619.png": "/images-viewer/static/media/marte.aa5e4619.png",
+    "static/media/searchbox.scss": "/images-viewer/static/media/search.6efa32a3.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d497e789.js",
+    "static/js/2.c094e6fe.chunk.js",
+    "static/css/main.d2e3f4fe.chunk.css",
+    "static/js/main.e65532ba.chunk.js"
+  ]
+}
