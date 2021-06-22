@@ -18,7 +18,7 @@ const DateField = ({label, value, onChange}) => {
 
     return (
         <div className="date-content">
-            {label && <label>{label}:</label>}
+            {label && <label>{label}</label>}
             <input
                 type="date"
                 value={valueFormatted}

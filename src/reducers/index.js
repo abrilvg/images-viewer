@@ -3,13 +3,16 @@ import Immutable from 'seamless-immutable';
 import {
     GET_PHOTOS_SUCCES,
     GET_PHOTOS_ERROR,
-    GET_PHOTOS_START
+    GET_PHOTOS_START,
+    SAVE_SEARCH_SUCCESS,
+    CLEAR_ALL_SEARCHES_SUCCESS
 } from '../actiontypes/index';
 
 const initialState = Immutable({
     photos: [],
     completedPhotosList: false,
-    loading: false
+    loading: false,
+    savedSearches: JSON.parse(localStorage.getItem('__savedSearches') || '[]')
 });
 
 const photosStore = (state = initialState, action) => {
@@ -34,6 +37,17 @@ const photosStore = (state = initialState, action) => {
         case GET_PHOTOS_START:
             return state.merge({
                 loading: false
+            });
+        case SAVE_SEARCH_SUCCESS:
+            const updatedSearches = [...state.savedSearches, action.search];
+            localStorage.setItem('__savedSearches', JSON.stringify(updatedSearches));
+            return state.merge({
+                savedSearches: updatedSearches
+            });
+        case CLEAR_ALL_SEARCHES_SUCCESS:
+            localStorage.removeItem('__savedSearches');
+            return state.merge({
+                savedSearches: []
             });
         default:
             return state;

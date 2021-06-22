@@ -21,6 +21,7 @@ const App = ({history}) => {
     const photos = useSelector(store => store.photos);
     const error = useSelector(store => store.error);
     const loading = useSelector(store => store.loading);
+    const savedSearches = useSelector(store => store.savedSearches);
     const completedPhotosList = useSelector(store => store.completedPhotosList);
 
     const fetchMoreListItems = () => {
@@ -58,7 +59,7 @@ const App = ({history}) => {
     return (
         <section>
             <Header clearFilters={handleClearFilters} />
-            <Searchbox/>
+            <Searchbox savedSearches={savedSearches}/>
             {photos.length > 0 && <Photos list={photos}/>}
             {photos.length === 0 && !error && <Message text="No photos found with current filters"/>}
             {isFetching && !completedPhotosList && !error && <Loader/>}

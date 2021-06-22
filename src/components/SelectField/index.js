@@ -11,9 +11,9 @@ const SelectField = ({options, label, secondary, value, onChange}) => {
 
     return (
         <div className={classNameValue}>
-            {label && <label>{label}:</label>}
+            {label && <label>{label}</label>}
             <select value={value} onChange={handleChange}>
-                { !value && <option value={'empty'} key={'empty'}>{'Select an option...'}</option>}
+                { value === '' && <option value={'empty'} key={'empty'}>{'Select an option...'}</option>}
                 {
                     options.map((o, index) => <option value={o.key} key={index}>{o.name}</option>)
                 }
@@ -23,10 +23,7 @@ const SelectField = ({options, label, secondary, value, onChange}) => {
 };
 
 SelectField.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string,
-        name: PropTypes.string
-    }).isRequired),
+    options: PropTypes.arrayOf(PropTypes.object).isRequired,
     label: PropTypes.string,
     secondary: PropTypes.bool,
     value: PropTypes.string,

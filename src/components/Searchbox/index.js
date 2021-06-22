@@ -1,10 +1,12 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import QueryString from 'query-string';
+import {useDispatch} from 'react-redux';
 
 import SelectField from '../SelectField';
 import InputField from '../InputField';
 import DateField from '../DateField';
+import {clearAllSearches} from '../../actions/actions';
 
 import './searchbox.scss';
 
@@ -47,7 +49,9 @@ const cameras = [
     }
 ];
 
-const Searchbox = ({history}) => {
+const Searchbox = ({history, savedSearches}) => {
+
+    const dispatch = useDispatch();
 
     let filters = QueryString.parse(history.location.search);
 
@@ -55,6 +59,19 @@ const Searchbox = ({history}) => {
         filters = {...filters, [name]: value, page: 1};
         history.push(`?${QueryString.stringify(filters)}`);
     };
+
+    const handleSelectSavedSearch = (searchId) => {
+        const savedSearch = savedSearches.find(s => s.id === searchId);
+        const savedSearchFilters = QueryString.parse(savedSearch.filters);
+        history.push(`?${QueryString.stringify(savedSearchFilters)}`);
+    };
+
+    const handleClearAllSearches = () => {
+        let proceed = window.confirm('Are you sure you want delete all searches?');
+        if (proceed) {
+            clearAllSearches(dispatch);
+        }
+    }
 
     return (
         <div className="searchbox">
@@ -80,6 +97,18 @@ const Searchbox = ({history}) => {
                     onChange={handleChangeFilter.bind(this, 'earth_date')}
                     value={filters.earth_date}
                 />
+            </section>
+            <section className="saved-searches">
+                <SelectField
+                    options={savedSearches.map(s => ({...s, key: s.id, name: s.searchName}))}
+                    secondary
+                    label='Saved Searches'
+                    value={QueryString.stringify(filters)? QueryString.stringify(filters): ''}
+                    onChange={handleSelectSavedSearch.bind(this)}
+                />
+                <button onClick={handleClearAllSearches}>
+                    Clear All Searches
+                </button>
             </section>
         </div>
     )

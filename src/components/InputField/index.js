@@ -9,7 +9,7 @@ const InputField = ({label, type, value, onChange}) => {
 
     return (
         <div className="input-content">
-            {label && <label>{label}:</label>}
+            {label && <label>{label}</label>}
             <input type={type} value={value} onChange={handleChange}/>
         </div>
     )
