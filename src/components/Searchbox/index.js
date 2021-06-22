@@ -1,12 +1,12 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom';
 import QueryString from 'query-string';
 import {useDispatch} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SelectField from '../SelectField';
 import InputField from '../InputField';
 import DateField from '../DateField';
-import {clearAllSearches} from '../../actions/actions';
+import {clearAllSearches} from '../../actions';
 
 import './searchbox.scss';
 
@@ -114,5 +114,8 @@ const Searchbox = ({history, savedSearches}) => {
     )
 };
 
-export default withRouter(Searchbox);
-export {Searchbox};
+Searchbox.propTypes = {
+    savedSearches: PropTypes.arrayOf(PropTypes.object)
+}
+
+export default Searchbox;

@@ -1,11 +1,10 @@
 import React from 'react';
-import SelectField from '../SelectField';
-import { withRouter } from 'react-router-dom';
 import QueryString from 'query-string';
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 
-import {saveSearch} from '../../actions/actions';
+import {saveSearch} from '../../actions';
+import SelectField from '../SelectField';
 
 import './header.scss';
 
@@ -72,5 +71,4 @@ Header.propTypes = {
     clearFilters: PropTypes.func.isRequired
 }
 
-export default withRouter(Header);
-export {Header};
+export default Header;

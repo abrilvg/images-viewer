@@ -9,7 +9,7 @@ import Searchbox from './components/Searchbox';
 import Photos from './components/Photos';
 import Loader from './components/Loader';
 import Message from './components/Message';
-import {getPhotos} from './actions/actions';
+import {getPhotos} from './actions';
 import useInfiniteScroll from './hooks/InfiniteScroll';
 
 const App = ({history}) => {
@@ -58,8 +58,8 @@ const App = ({history}) => {
 
     return (
         <section>
-            <Header clearFilters={handleClearFilters} />
-            <Searchbox savedSearches={savedSearches}/>
+            <Header clearFilters={handleClearFilters} history={history} />
+            <Searchbox savedSearches={savedSearches} history={history}/>
             {photos.length > 0 && <Photos list={photos}/>}
             {photos.length === 0 && !error && <Message text="No photos found with current filters"/>}
             {isFetching && !completedPhotosList && !error && <Loader/>}
