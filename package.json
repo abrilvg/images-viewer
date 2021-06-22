@@ -3,6 +3,7 @@
     "author": "Amira Abril Veliz Guardia",
     "version": "1.0.0",
     "private": true,
+    "homepage": "http://abrilvg.github.io/images-viewer",
     "repository": {
         "type": "git",
         "url": ""
@@ -88,24 +89,26 @@
     "scripts": {
         "start": "node scripts/start.js",
         "build": "node scripts/build.js",
-        "test": "node scripts/test.js"
+        "test": "jest",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
-        "react-app",
-        "react-app/jest"
+            "react-app",
+            "react-app/jest"
         ]
     },
     "browserslist": {
         "production": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
         ],
         "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
         ]
     },
     "jest": {
@@ -167,7 +170,10 @@
     },
     "babel": {
         "presets": [
-        "react-app"
+            "react-app"
         ]
+    },
+    "devDependencies": {
+        "gh-pages": "^3.2.3"
     }
 }

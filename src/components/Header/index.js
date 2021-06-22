@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux';
 
 import {saveSearch} from '../../actions';
 import SelectField from '../SelectField';
+import MarsLogo from './marte.png';
 
 import './header.scss';
 
@@ -50,7 +51,7 @@ const Header = ({history, clearFilters}) => {
     return (
         <div className="header">
             <a href="#" className="logo" onClick={clearFilters}>
-                <img src='/mars.svg' height="50" width="50" alt="Mars logo"/>
+                <img src={MarsLogo} height="50" width="50" alt="Mars logo"/>
                 <h2>Rover Mars</h2>
             </a>
             <section className="main-filters">
