@@ -18,9 +18,7 @@ const InputField = ({label, type, value, onChange}) => {
 InputField.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([
-        PropTypes.number
-    ]).isRequired,
+    value: PropTypes.string,
     onChange: PropTypes.func.isRequired
 };
 

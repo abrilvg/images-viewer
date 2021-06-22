@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './selectField.scss';
@@ -8,8 +8,6 @@ const SelectField = ({options, label, secondary, value, onChange}) => {
     const handleChange = ({target: {value}}) => onChange(value);
 
     const classNameValue = secondary? 'select-content secondary': 'select-content';
-
-    console.log(value, '############ value');
 
     return (
         <div className={classNameValue}>
@@ -31,10 +29,7 @@ SelectField.propTypes = {
     }).isRequired),
     label: PropTypes.string,
     secondary: PropTypes.bool,
-    value: PropTypes.shape({
-        key: PropTypes.string,
-        name: PropTypes.string
-    }),
+    value: PropTypes.string,
     onChange: PropTypes.func.isRequired
 };
 

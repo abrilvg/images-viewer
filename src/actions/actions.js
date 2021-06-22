@@ -24,11 +24,13 @@ const getPhotos = async (dispatch, filterParams) => {
         dispatch({
             type: GET_PHOTOS_START
         });
-        const result = await fetch(`${url}/${rover}/photos?${QueryString.stringify(query)}`);
-        if (result.status >= 400 && result.status < 600) {
-            throw result.statusText;
-        }
-        const response = await result.json();
+        // const result = await fetch(`${url}/${rover}/photos?${QueryString.stringify(query)}`);
+        // if (result.status >= 400 && result.status < 600) {
+        //     throw result.statusText;
+        // }
+        // const response = await result.json();
+
+        const response = {photos};
 
         dispatch({
             type: GET_PHOTOS_SUCCES,
@@ -48,3 +50,45 @@ const getPhotos = async (dispatch, filterParams) => {
 export {
     getPhotos
 };
+
+const photos = [
+    {
+        "id": 102693,
+        "sol": 1000,
+        "camera": {
+            "id": 20,
+            "name": "FHAZ",
+            "rover_id": 5,
+            "full_name": "Front Hazard Avoidance Camera"
+        },
+        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG",
+        "earth_date": "2015-05-30",
+        "rover": {
+            "id": 5,
+            "name": "Curiosity",
+            "landing_date": "2012-08-06",
+            "launch_date": "2011-11-26",
+            "status": "active"
+        }
+    },
+    {
+        "id": 102694,
+        "sol": 1000,
+        "camera": {
+            "id": 20,
+            "name": "FHAZ",
+            "rover_id": 5,
+            "full_name": "Front Hazard Avoidance Camera"
+        },
+        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FRB_486265257EDR_F0481570FHAZ00323M_.JPG",
+        "earth_date": "2015-05-30",
+        "rover": {
+            "id": 5,
+            "name": "Curiosity",
+            "landing_date": "2012-08-06",
+            "launch_date": "2011-11-26",
+            "status": "active"
+        }
+    }
+];
+

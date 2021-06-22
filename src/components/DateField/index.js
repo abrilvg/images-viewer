@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './dateField.scss';
@@ -30,9 +30,9 @@ const DateField = ({label, value, onChange}) => {
 
 DateField.propTypes = {
     label: PropTypes.string,
-    initialValue: PropTypes.oneOfType([
+    value: PropTypes.oneOfType([
         PropTypes.string
-    ]).isRequired,
+    ]),
     onChange: PropTypes.func.isRequired
 };
 

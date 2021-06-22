@@ -9,7 +9,7 @@ const Photos = ({list}) => {
     return (
         <div className='photos'>
             {
-                list.map(photo => <Photo photo={photo}/>)
+                list.map(photo => <Photo photo={photo} key={photo.id}/>)
             }
         </div>
     )

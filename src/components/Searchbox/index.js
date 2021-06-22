@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import QueryString from 'query-string';
 
@@ -66,6 +65,7 @@ const Searchbox = ({history}) => {
                     secondary
                     label='Select Sol Date'
                     value={filters.sol}
+                    type="number"
                     onChange={handleChangeFilter.bind(this, 'sol')}
                 />
                 <SelectField
@@ -84,8 +84,6 @@ const Searchbox = ({history}) => {
         </div>
     )
 };
-
-Searchbox.propTypes = {};
 
 export default withRouter(Searchbox);
 export {Searchbox};

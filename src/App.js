@@ -23,14 +23,6 @@ const App = ({history}) => {
     const loading = useSelector(store => store.loading);
     const completedPhotosList = useSelector(store => store.completedPhotosList);
 
-    const today = new Date();
-    const initialFilters = {
-        sol: 1000,
-        rover: 'curiosity',
-        page: 1,
-        earth_date: today.toLocaleDateString()
-    };
-
     const fetchMoreListItems = () => {
         if (!completedPhotosList && !loading && !error) {
             setTimeout(() => {
@@ -41,8 +33,15 @@ const App = ({history}) => {
             }, 1000);
         }
     };
-
     const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
+
+    const today = new Date();
+    const initialFilters = {
+        sol: 1000,
+        rover: 'curiosity',
+        page: 1,
+        earth_date: today.toLocaleDateString()
+    };
 
     const handleClearFilters = () => {
         history.push(`?${QueryString.stringify(initialFilters)}`);

@@ -39,7 +39,7 @@ const Header = ({history, clearFilters}) => {
             <section className="rovers">
                 <SelectField
                     options={roverOptions}
-                    value={filters.rover? filters.rover : null}
+                    value={filters.rover? filters.rover : ''}
                     onChange={handleChangeRover}
                 />
             </section>
